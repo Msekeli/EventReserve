@@ -6,9 +6,10 @@ function ReservationTable({ reservations, onEdit, onDelete }) {
 
   const sortedReservations = useMemo(() => {
     return [...reservations].sort(
-      (a, b) => new Date(b.eventDate) - new Date(a.eventDate),
+      (a, b) => new Date(a.eventDate) - new Date(b.eventDate),
     );
   }, [reservations]);
+
 
   const visibleReservations = showAll
     ? sortedReservations
