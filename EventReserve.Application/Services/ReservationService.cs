@@ -12,6 +12,16 @@ public class ReservationService
         _repository = repository;
     }
 
+    public async Task<List<Reservation>> GetAllAsync()
+    {
+        return await _repository.GetAllAsync();
+    }
+
+    public async Task<Reservation?> GetByIdAsync(Guid id)
+    {
+        return await _repository.GetByIdAsync(id);
+    }
+
     public async Task<Guid> CreateAsync(string attendeeName, string eventName, DateTime eventDate)
     {
         var reservation = new Reservation(
