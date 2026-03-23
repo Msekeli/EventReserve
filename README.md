@@ -1,59 +1,83 @@
 # EventReserve
 
-## Overview
+A lightweight event reservation system built with ASP.NET Core (.NET 9) and React.  
+It allows users to create, update, and delete reservations through a clean API and simple frontend.
 
-EventReserve is a simple event reservation system built using ASP.NET Core (.NET 9) and Clean Architecture principles.
+---
 
-The system allows users to:
+## Features
 
-- Create a reservation
-- Update a reservation
-- Delete a reservation
+- Create reservations
+- Update reservations
+- Delete reservations
+- In-memory data storage
 
-Data is stored in memory
+---
 
-## Architecture
+## Tech Stack
 
-The solution follows Clean Architecture with the following layers:
+**Backend**
+- ASP.NET Core (.NET 9)
+- Clean Architecture
+- In-memory repository
 
-- **Domain** – Core business entity (Reservation)
-- **Application** – Use cases and repository abstraction
-- **Infrastructure** – In-memory repository implementation
-- **API** – HTTP layer and dependency injection
-- **Tests** – Unit tests for application logic
+**Frontend**
+- React (Vite)
+- Tailwind CSS
 
-Dependencies flow inward toward the Domain layer.
+---
 
-## Design Decisions
+## Project Structure
 
-- The domain entity encapsulates its state and enforces basic validation.
-- The application layer depends on abstractions, not concrete implementations.
-- The infrastructure layer implements repository contracts.
-- The API layer remains thin and contains no business logic.
-- In-memory storage is used to satisfy the requirement of no external persistence.
-- The solution intentionally avoids overengineering and keeps the model minimal.
+- EventReserve.Api → API layer  
+- EventReserve.Application → business logic  
+- EventReserve.Domain → entities  
+- EventReserve.Infrastructure → data access  
+- EventReserve.Tests → unit tests  
+- EventReserve.Client → frontend  
 
-## How to Run the Application
+---
 
-From the root folder:
+## Running the Project
 
+### Backend
 ```bash
-dotnet build
-dotnet run --project EventReserve.Api
+cd EventReserve.Api
+dotnet run
 ```
 
-Then navigate to:
+API:  
+http://localhost:5007  
 
-https://localhost:{port}/swagger
+Swagger:  
+http://localhost:5007/index.html  
 
-## How to Run Tests
+### Frontend
+```bash
+cd EventReserve.Client
+npm install
+npm run dev
+```
 
-From the root folder:
+Frontend:  
+http://localhost:5173  
 
+---
+
+## Testing
 ```bash
 dotnet test
 ```
 
+---
+
 ## Notes
 
-This implementation focuses on clarity, separation of concerns, and adherence to SOLID principles.
+- Data is stored in memory (resets on restart)
+- Designed to meet assessment requirements
+
+---
+
+## Author
+
+Msekeli Mkwibiso
